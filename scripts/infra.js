@@ -317,7 +317,7 @@ async function outputs() {
 
 function showHelp() {
   console.log(`
-${chalk.cyan.bold('Plonk Infrastructure Management Script')}
+${chalk.cyan.bold('Infrastructure Management Script')}
 
 Usage: node scripts/infra.js <command> [options]
 

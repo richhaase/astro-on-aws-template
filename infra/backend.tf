@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "ydl-tf"
-    key    = "stacks/plonk-site/terraform.tfstate"
+    bucket = "{{PROJECT_NAME}}-terraform-state"
+    key    = "stacks/{{PROJECT_NAME}}/terraform.tfstate"
     region = "us-west-2"
   }
 }

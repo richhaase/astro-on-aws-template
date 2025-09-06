@@ -2,7 +2,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
     domain_name              = aws_s3_bucket.domain_bucket.bucket_regional_domain_name
     origin_access_control_id = aws_cloudfront_origin_access_control.main.id
-    origin_id                = "plonk.sh.s3-website-us-west-2.amazonaws.com"
+    origin_id                = "s3-${var.domain_name}"
   }
 
   enabled             = true
@@ -13,7 +13,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
-    target_origin_id = "plonk.sh.s3-website-us-west-2.amazonaws.com"
+    target_origin_id = "s3-${var.domain_name}"
 
     forwarded_values {
       query_string = false
@@ -67,15 +67,15 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 }
 
 resource "aws_cloudfront_origin_access_control" "main" {
-  name                              = "OAC-for-plonk.sh"
-  description                       = "OAC for S3 bucket plonk.sh"
+  name                              = "OAC-for-${var.domain_name}"
+  description                       = "OAC for S3 bucket ${var.domain_name}"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
   signing_protocol                  = "sigv4"
 }
 
 resource "aws_cloudfront_function" "url_rewrite" {
-  name    = "plonk-sh-url-rewrite"
+  name    = "${replace(var.domain_name, ".", "-")}-url-rewrite"
   runtime = "cloudfront-js-1.0"
   comment = "URL rewrite function for Astro pretty URLs"
   publish = true

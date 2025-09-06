@@ -3,7 +3,7 @@ resource "aws_route53_zone" "main" {
   tags = var.common_tags
 }
 
-resource "aws_route53_record" "plonk_sh" {
+resource "aws_route53_record" "main" {
   zone_id = aws_route53_zone.main.zone_id
   name    = var.domain_name
   type    = "A"
@@ -15,7 +15,7 @@ resource "aws_route53_record" "plonk_sh" {
   }
 }
 
-resource "aws_route53_record" "www_plonk_sh" {
+resource "aws_route53_record" "www" {
   zone_id = aws_route53_zone.main.zone_id
   name    = "www.${var.domain_name}"
   type    = "A"
@@ -45,7 +45,7 @@ resource "aws_route53_record" "cert_validation" {
 }
 
 # Domain registration managed externally (Hover with Route 53 nameservers)
-# resource "aws_route53domains_registered_domain" "plonk_sh" {
+# resource "aws_route53domains_registered_domain" "main" {
 #   domain_name = var.domain_name
 #   tags        = var.common_tags
 # }

@@ -103,26 +103,31 @@ export const templateConfig = {
     'package.json',
     'pnpm-workspace.yaml',
     
+    // Environment configuration
+    '.env.example',
+    
     // Site configuration
     'site/package.json',
     'site/astro.config.mjs',
     'site/tailwind.config.js',
     
     // Infrastructure
+    'infra/backend.tf',
     'infra/variables.tf',
     'infra/main.tf',
     'infra/s3.tf',
     'infra/route53.tf',
+    'infra/cloudfront.tf',
+    'infra/README.md',
     
     // Scripts
     'scripts/deploy.js',
     'scripts/infra.js',
+    'scripts/health.js',
     
-    // Content files  
+    // Site pages and assets
     'site/src/pages/index.astro',
-    'site/src/components/Hero.astro',
-    'site/src/components/Features.astro',
-    'site/src/layouts/BaseLayout.astro',
+    'site/public/robots.txt',
     
     // Documentation
     'README.md'

@@ -11,7 +11,7 @@ import ora from 'ora';
 
 const CONFIG = {
   region: process.env.AWS_REGION || 'us-east-1',
-  bucketName: process.env.S3_BUCKET || 'plonk-site-bucket',
+  bucketName: process.env.S3_BUCKET || '{{PROJECT_NAME}}-site-bucket',
   distributionId: process.env.CLOUDFRONT_DISTRIBUTION_ID || '',
   buildDir: path.join(process.cwd(), 'site/dist'),
   dryRun: process.argv.includes('--dry-run'),
@@ -60,7 +60,7 @@ async function validateConfig() {
     
     // Check required environment variables
     const missing = [];
-    if (!CONFIG.bucketName || CONFIG.bucketName === 'plonk-site-bucket') {
+    if (!CONFIG.bucketName || CONFIG.bucketName === '{{PROJECT_NAME}}-site-bucket') {
       missing.push('S3_BUCKET');
     }
     if (!CONFIG.distributionId) {
@@ -214,7 +214,7 @@ async function invalidateCloudFront() {
 }
 
 async function deploy() {
-  console.log(chalk.cyan.bold('🚀 Deploying Plonk Site\n'));
+  console.log(chalk.cyan.bold('🚀 Deploying Site\n'));
   
   try {
     await validateConfig();
@@ -226,7 +226,7 @@ async function deploy() {
     if (!CONFIG.dryRun) {
       logger.info('Your site should be available at:');
       logger.info(`  • S3: http://${CONFIG.bucketName}.s3-website-${CONFIG.region}.amazonaws.com`);
-      logger.info('  • CloudFront: https://plonk.sh (after DNS propagation)');
+      logger.info('  • CloudFront: https://{{DOMAIN_NAME}} (after DNS propagation)');
     }
     
   } catch (error) {
@@ -245,7 +245,7 @@ async function deploy() {
 // Handle CLI arguments
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
   console.log(`
-${chalk.cyan.bold('Plonk Site Deployment Script')}
+${chalk.cyan.bold('Site Deployment Script')}
 
 Usage: node scripts/deploy.js [options]
 

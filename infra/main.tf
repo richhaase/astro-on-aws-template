@@ -1,4 +1,4 @@
-# Main configuration file for plonk.sh infrastructure
+# Main configuration file for {{PROJECT_TITLE}} infrastructure
 # This file serves as the entry point for the Terraform/OpenTofu configuration
 
 # All resources are defined in their respective files:

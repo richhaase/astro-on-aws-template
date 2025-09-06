@@ -1,193 +1,221 @@
-# Astro + AWS Infrastructure Template
+# Astro + AWS Static Site Template
 
-A production-ready Astro template with complete AWS infrastructure setup. Perfect for any type of static site: landing pages, documentation, blogs, portfolios, or general websites.
+A minimal, production-ready template for deploying Astro sites to AWS. Get a professional static site infrastructure up and running in minutes.
 
-## ✨ Features
+## ✨ What You Get
 
-- **Modern Astro Stack**: Latest Astro with Tailwind CSS 4.0
-- **Complete AWS Infrastructure**: S3, CloudFront, Route 53, SSL certificates
-- **Production Ready**: Sophisticated deployment automation and error handling
-- **Infrastructure as Code**: OpenTofu/Terraform with proper security
-- **Flexible**: Works for any static site type (landing pages, docs, blogs, etc.)
-- **Performance Optimized**: CDN, caching, and build optimization
+### 🚀 **Minimal Astro Setup**
+- Clean Astro installation with single `index.astro` starter page
+- Tailwind CSS 4.x pre-configured and ready to use
+- Automatic sitemap generation
+- Optimized build configuration for AWS S3
+
+### ☁️ **Complete AWS Infrastructure**
+- **S3** static website hosting with proper security policies
+- **CloudFront** CDN with SSL/TLS and caching optimization
+- **Route 53** DNS management and domain configuration
+- **ACM** SSL certificate with automatic DNS validation
+- **IAM** least-privilege deployment permissions
+
+### 🛠️ **Professional Deployment Pipeline**
+- One-command deployment: `npm run deploy`
+- Automatic CloudFront cache invalidation
+- Health checks and deployment verification
+- Environment configuration with validation
+- Comprehensive error handling and rollback
+
+### 📦 **Infrastructure as Code**
+- OpenTofu/Terraform configuration included
+- Version controlled infrastructure state
+- Repeatable deployments across environments
+- Easy infrastructure updates and rollbacks
 
 ## 🚀 Quick Start
 
-### 1. Create from Template
-Click "Use this template" above or visit the template generation page
-
-### 2. Clone and Initialize
+### 1. Use This Template
 ```bash
-git clone https://github.com/YOUR_USERNAME/your-new-site.git
-cd your-new-site
+# Clone the template (replace with your repo URL after creating from template)
+git clone https://github.com/YOUR_USERNAME/your-site-name.git
+cd your-site-name
+```
+
+### 2. Initialize Your Project
+```bash
+# Run the setup script to configure your site
 npm run setup
 ```
 
-### 3. Configure Your Site
 The setup script will prompt for:
-- **Domain name** (e.g., `mysite.com`)
-- **Site type** (landing page, documentation, blog, general)
-- **Project metadata** (title, description, author)
-- **AWS configuration** (region, tags)
+- **Project name** (`my-awesome-site`)
+- **Domain name** (`mysite.com`) 
+- **Project title** (`My Awesome Site`)
+- **Description** (`An amazing website built with Astro`)
+- **Author information** (name, email, twitter)
+- **AWS region** (`us-east-1`, `us-west-2`, etc.)
+
+### 3. Install Dependencies
+```bash
+# Install all dependencies
+pnpm install
+```
 
 ### 4. Start Development
 ```bash
-pnpm install
-pnpm run dev
+# Start Astro dev server
+cd site
+npm run dev
 ```
 
-### 5. Deploy
+Your site will be available at `http://localhost:4321` with hot-reloading.
+
+### 5. Deploy to AWS
+
+#### First Time Setup
+1. **Configure AWS credentials** (AWS CLI, environment variables, or IAM roles)
+2. **Create Terraform state bucket** (one-time setup):
+   ```bash
+   # Create S3 bucket for Terraform state
+   aws s3 mb s3://your-project-terraform-state --region us-east-1
+   ```
+
+#### Deploy Infrastructure
 ```bash
-# Deploy infrastructure
-pnpm run infra:apply
-
-# Deploy site
-pnpm run deploy
+# Deploy AWS infrastructure (S3, CloudFront, Route 53, etc.)
+npm run infra:apply
 ```
 
-## 📁 Project Structure
+#### Deploy Your Site
+```bash
+# Build and deploy your site
+npm run deploy
+```
+
+That's it! Your site will be live at your custom domain with SSL, CDN, and professional hosting.
+
+## 📁 Template Structure
 
 ```
-├── site/                 # Astro application
+├── site/                    # Astro application
 │   ├── src/
-│   │   ├── components/   # Reusable UI components
-│   │   ├── layouts/      # Page layouts
-│   │   ├── pages/        # Site pages/routes
-│   │   ├── content/      # Markdown content (optional)
-│   │   └── styles/       # Styling and CSS
-├── infra/                # AWS infrastructure
-│   ├── main.tf          # Core infrastructure
-│   ├── s3.tf            # S3 bucket configuration
-│   ├── cloudfront.tf    # CDN setup
-│   ├── route53.tf       # DNS configuration
-│   └── variables.tf     # Configurable parameters
-├── scripts/              # Automation scripts
-│   ├── setup.js         # Template initialization
-│   ├── deploy.js        # Site deployment
-│   └── infra.js         # Infrastructure management
-└── docs/                # Project documentation
+│   │   ├── pages/
+│   │   │   └── index.astro  # Your starting page
+│   │   └── styles/
+│   │       └── global.css   # Tailwind CSS imports
+│   ├── public/              # Static assets
+│   ├── package.json
+│   └── astro.config.mjs     # Optimized for AWS deployment
+├── infra/                   # AWS infrastructure (OpenTofu/Terraform)
+│   ├── main.tf              # Infrastructure configuration  
+│   ├── variables.tf         # Customizable variables
+│   ├── s3.tf               # S3 bucket and policies
+│   ├── cloudfront.tf       # CDN configuration
+│   ├── route53.tf          # DNS configuration
+│   └── acm.tf              # SSL certificate
+├── scripts/                 # Deployment automation
+│   ├── deploy.js           # Site deployment script
+│   ├── infra.js            # Infrastructure management
+│   ├── health.js           # Health check utilities
+│   └── setup.js            # Template initialization
+├── .env.example            # Environment configuration template
+└── template.config.js      # Template settings and variables
 ```
 
-## 🎯 Use Cases
+## 🔧 Available Commands
 
-This template works great for:
+### Development
+```bash
+cd site
+npm run dev          # Start Astro dev server
+npm run build        # Build for production
+npm run preview      # Preview production build
+```
 
-- **🏠 Landing Pages**: Product launches, marketing sites
-- **📚 Documentation**: Technical docs, guides, wikis  
-- **✍️ Blogs**: Personal blogs, company blogs
-- **👤 Portfolios**: Personal or professional portfolios
-- **🏢 Corporate Sites**: Company websites, microsites
-- **📱 App Sites**: Mobile app landing pages
+### Deployment
+```bash
+npm run deploy       # Deploy site to AWS
+npm run health       # Check site health
+```
 
-## 🛠 Development Commands
+### Infrastructure
+```bash
+npm run infra:init   # Initialize Terraform
+npm run infra:plan   # Preview infrastructure changes  
+npm run infra:apply  # Deploy infrastructure
+npm run infra:destroy # Destroy infrastructure
+```
+
+## 🌍 Multi-Environment Support
+
+Create different environments by copying and modifying configuration:
 
 ```bash
-# Start development server
-pnpm run dev
+# Development environment
+cp .env.example .env.dev
+# Edit .env.dev with dev-specific values
 
-# Build for production  
-pnpm run build
+# Production environment  
+cp .env.example .env.prod
+# Edit .env.prod with production values
 
-# Preview production build
-pnpm run preview
-
-# Type check
-pnpm run check
-
-# Lint and format
-pnpm run lint
-pnpm run format
+# Deploy to specific environment
+NODE_ENV=dev npm run deploy
+NODE_ENV=prod npm run deploy
 ```
 
-## 🚢 Infrastructure & Deployment
+## 🔒 Security Features
 
-### Prerequisites
-- AWS CLI configured with appropriate permissions
-- Domain name registered and manageable
-- OpenTofu or Terraform installed
+- **Secure S3 policies** with CloudFront-only access
+- **SSL/TLS encryption** with HTTP to HTTPS redirects
+- **Security headers** via CloudFront
+- **IAM least-privilege** access for deployments
+- **Input validation** for all configuration values
 
-### Infrastructure Deployment
-```bash
-# Initialize infrastructure
-pnpm run infra:init
+## 📈 Performance Optimizations
 
-# Preview changes
-pnpm run infra:plan  
+- **CloudFront CDN** with global edge locations
+- **Optimized caching** for static assets
+- **Compressed HTML** and automatic minification
+- **Modern image formats** and optimization
+- **Clean URLs** without .html extensions
 
-# Deploy infrastructure
-pnpm run infra:apply
+## 🆘 Troubleshooting
 
-# Destroy infrastructure (when needed)
-pnpm run infra:destroy
-```
+### Common Issues
 
-### Site Deployment
-```bash
-# Deploy site (build + upload + CDN invalidation)
-pnpm run deploy
+**Domain not resolving:**
+- DNS propagation can take 24-48 hours
+- Verify Route 53 name servers match domain registrar
 
-# Deploy with verbose logging
-pnpm run deploy:verbose
+**SSL certificate pending:**
+- Ensure DNS is configured correctly for validation
+- Certificate validation can take 10-30 minutes
 
-# Dry run (preview without changes)
-pnpm run deploy:dry
-```
+**Deployment fails:**
+- Check AWS credentials are configured
+- Verify S3 bucket permissions
+- Ensure CloudFront distribution is deployed
 
-## ⚙️ Infrastructure Components
+**Site not updating:**
+- CloudFront caching may be serving old content
+- Run `npm run deploy` to trigger cache invalidation
 
-- **🪣 S3 Bucket**: Static website hosting with proper policies
-- **🌐 CloudFront**: Global CDN with custom error pages and functions
-- **🏷️ Route 53**: DNS management and domain routing
-- **🔒 ACM**: Automatic SSL certificate management  
-- **🛡️ IAM**: Minimal required permissions and OAC security
-- **📊 Optional**: CloudWatch logging and monitoring
+### Get Help
 
-## 🎨 Customization
+1. Check the logs: `npm run health -- --verbose`
+2. Verify infrastructure: `npm run infra:plan`
+3. Review [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
 
-### Site Configuration
-Edit `site/astro.config.mjs` for Astro-specific settings:
-- Site URL and base path
-- Build output directory
-- Integrations and plugins
-
-### Infrastructure Settings  
-Modify `infra/variables.tf` to adjust:
-- AWS region and availability zones
-- S3 bucket configuration
-- CloudFront distribution settings
-- DNS and certificate options
-
-### Styling
-The template includes Tailwind CSS 4.0:
-- Modern CSS-first configuration
-- Custom design tokens
-- Responsive utilities
-- Dark mode support (optional)
-
-## 📖 Documentation
+## 🔗 Resources
 
 - [Astro Documentation](https://docs.astro.build)
 - [Tailwind CSS v4](https://tailwindcss.com/docs)
 - [OpenTofu Documentation](https://opentofu.org/docs)
 - [AWS Static Hosting Guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html)
 
-## 🔧 Troubleshooting
-
-Common issues and solutions:
-
-- **Domain not resolving**: Check Route 53 nameservers
-- **SSL certificate pending**: Wait for DNS validation
-- **Deploy fails**: Verify AWS credentials and permissions
-- **Build errors**: Check Node.js version (18+ required)
-
-## 🤝 Contributing
-
-Improvements welcome! Please:
-1. Fork the repository
-2. Create a feature branch
-3. Test changes thoroughly
-4. Submit a pull request
-
 ## 📄 License
 
-MIT License - Use freely for personal and commercial projects.
+MIT License - see [LICENSE](LICENSE) file for details.
+
+---
+
+**Built for developers who want professional AWS hosting without the complexity.**

@@ -8,7 +8,7 @@ import ora from 'ora';
 
 const CONFIG = {
   urls: [
-    process.env.SITE_URL || 'https://plonk.sh',
+    process.env.SITE_URL || 'https://{{DOMAIN_NAME}}',
     process.env.S3_URL || null
   ].filter(Boolean),
   timeout: 10000,
@@ -56,7 +56,7 @@ function checkUrl(url) {
     const req = client.get(url, {
       timeout: CONFIG.timeout,
       headers: {
-        'User-Agent': 'Plonk Site Health Check'
+        'User-Agent': 'Site Health Check'
       }
     }, (res) => {
       const responseTime = Date.now() - startTime;
@@ -74,7 +74,7 @@ function checkUrl(url) {
           success: res.statusCode >= 200 && res.statusCode < 400,
           headers: res.headers,
           bodyLength: body.length,
-          hasContent: body.includes('Plonk') || body.includes('<title>'),
+          hasContent: body.includes('{{PROJECT_TITLE}}') || body.includes('<title>'),
           error: null
         });
       });
@@ -132,7 +132,7 @@ async function runHealthChecks() {
         }
         
         if (!result.hasContent) {
-          logger.warn('Response body does not contain expected Plonk content');
+          logger.warn('Response body does not contain expected site content');
         }
         
       } else {
@@ -182,7 +182,7 @@ async function runHealthChecks() {
 // Handle CLI arguments
 if (process.argv.includes('--help') || process.argv.includes('-h')) {
   console.log(`
-${chalk.cyan.bold('Plonk Site Health Check Script')}
+${chalk.cyan.bold('Site Health Check Script')}
 
 Usage: node scripts/health.js [options]
 
@@ -191,7 +191,7 @@ Options:
   --help, -h       Show this help message
 
 Environment Variables:
-  SITE_URL         Primary site URL to check (default: https://plonk.sh)
+  SITE_URL         Primary site URL to check (default: https://{{DOMAIN_NAME}})
   S3_URL          S3 website URL to check (optional)
 
 Examples:
