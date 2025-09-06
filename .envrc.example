@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Example environment configuration file
+# Copy this to .envrc and customize for your project
+
+# AWS Configuration
+export AWS_REGION="{{AWS_REGION}}"
+export AWS_DEFAULT_REGION="{{AWS_REGION}}"
+
+# These will be populated after infrastructure deployment
+# Run `pnpm run infra:output` to get the actual values
+export S3_BUCKET=""
+export CLOUDFRONT_DISTRIBUTION_ID=""
+
+# Optional: AWS Profile
+# export AWS_PROFILE="your-profile-name"
+
+# Development settings
+export NODE_ENV="development"

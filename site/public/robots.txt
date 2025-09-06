@@ -1,0 +1,12 @@
+# Robots.txt for Plonk - Unified Package and Dotfile Manager
+# https://plonk.sh
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://plonk.sh/sitemap.xml
+
+# Disallow test and development pages
+Disallow: /test/
+Disallow: /index-complex/

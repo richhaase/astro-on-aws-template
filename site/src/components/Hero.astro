@@ -1,0 +1,140 @@
+---
+---
+
+<section class="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white py-20 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-4xl text-center">
+      <!-- Badge -->
+      <div class="mb-8 inline-flex items-center rounded-full bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-600 ring-1 ring-indigo-200">
+        <span class="mr-2">🔧</span> Unified package and dotfile manager
+      </div>
+      
+      <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl lg:text-8xl">
+        <span class="block">Meet</span>
+        <span class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+          Plonk
+        </span>
+      </h1>
+      
+      <p class="mt-8 text-xl leading-8 text-gray-600 sm:text-2xl">
+        The missing link between <strong class="text-gray-900">dotfile managers</strong> and 
+        <strong class="text-gray-900">package managers</strong>. One command to set up your entire development environment.
+      </p>
+      
+      <!-- Code preview -->
+      <div class="mt-12 mx-auto max-w-2xl">
+        <div class="rounded-xl bg-gray-900 p-1 shadow-2xl">
+          <div class="rounded-lg bg-gray-900 p-6">
+            <div class="flex items-center mb-4">
+              <div class="flex space-x-2">
+                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+              </div>
+              <div class="flex-1 text-center">
+                <span class="text-gray-400 text-sm font-mono">terminal</span>
+              </div>
+            </div>
+            <div class="font-mono text-left">
+              <div class="text-green-400">$ plonk clone your-github/dotfiles</div>
+              <div class="text-gray-300 mt-2">📦 Installing package managers...</div>
+              <div class="text-gray-300">⚙️  Installing packages...</div>
+              <div class="text-gray-300">📄 Deploying dotfiles...</div>
+              <div class="text-green-400 mt-2">✅ Environment ready!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+        <a
+          href="#install"
+          class="group rounded-xl bg-indigo-600 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white shadow-lg hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition-all transform hover:scale-105"
+        >
+          <span class="flex items-center">
+            Try It Out
+            <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          </span>
+        </a>
+        <a 
+          href="https://github.com/richhaase/plonk" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="group rounded-xl border-2 border-gray-300 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-gray-700 shadow-lg hover:border-gray-400 hover:text-gray-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-500 transition-all transform hover:scale-105"
+        >
+          <span class="flex items-center">
+            <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+            </svg>
+            View on GitHub
+            <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </span>
+        </a>
+        <a href="#features" class="group text-base sm:text-lg font-semibold leading-6 text-gray-700 hover:text-indigo-600 transition-colors">
+          <span class="flex items-center">
+            Learn More
+            <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+      
+      <!-- Key Stats -->
+      <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div class="text-center">
+          <div class="text-2xl font-bold text-indigo-600">12 Package Managers</div>
+          <div class="text-sm text-gray-600">One unified interface</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-indigo-600">Zero Config</div>
+          <div class="text-sm text-gray-600">Filesystem as truth</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-indigo-600">MIT Licensed</div>
+          <div class="text-sm text-gray-600">Open source</div>
+        </div>
+      </div>
+
+      <!-- GitHub Badges -->
+      <div class="mt-12 flex flex-wrap justify-center items-center gap-2 sm:gap-3">
+        <img 
+          src="https://img.shields.io/github/stars/richhaase/plonk?style=for-the-badge&logo=github&color=4f46e5" 
+          alt="GitHub stars" 
+          class="h-6 sm:h-7 transition-transform hover:scale-105"
+          loading="lazy"
+        />
+        <img 
+          src="https://img.shields.io/github/last-commit/richhaase/plonk?style=for-the-badge&color=06b6d4" 
+          alt="Last commit" 
+          class="h-6 sm:h-7 transition-transform hover:scale-105"
+          loading="lazy"
+        />
+        <img 
+          src="https://img.shields.io/github/contributors/richhaase/plonk?style=for-the-badge&color=10b981" 
+          alt="Contributors" 
+          class="h-6 sm:h-7 transition-transform hover:scale-105"
+          loading="lazy"
+        />
+        <img 
+          src="https://img.shields.io/github/license/richhaase/plonk?style=for-the-badge&color=f59e0b" 
+          alt="License" 
+          class="h-6 sm:h-7 transition-transform hover:scale-105"
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </div>
+  
+  <!-- Enhanced background decoration -->
+  <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+    <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div>
+  <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+    <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div>
+</section>

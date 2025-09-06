@@ -1,0 +1,132 @@
+---
+---
+
+<section id="install" class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        Get Started with Plonk
+      </h2>
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        Install Plonk and set up your entire development environment in minutes.
+      </p>
+    </div>
+    
+    <div class="mx-auto mt-16 max-w-4xl">
+      <!-- Prerequisites -->
+      <div class="mb-12 rounded-2xl bg-amber-50 p-8 ring-1 ring-amber-200">
+        <h3 class="text-lg font-semibold text-amber-900 flex items-center">
+          <svg class="h-6 w-6 mr-2 text-amber-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+          </svg>
+          Prerequisites Required
+        </h3>
+        <p class="mt-2 text-sm text-amber-800">
+          Before installing Plonk, you need <strong>Homebrew</strong> and <strong>Git</strong>. 
+          Visit <a href="https://brew.sh" class="underline text-amber-900">brew.sh</a> for Homebrew installation instructions.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <!-- Homebrew Installation -->
+        <div class="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-200">
+          <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+            <svg class="h-6 w-6 mr-2 text-orange-600" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+            Homebrew (Recommended)
+          </h3>
+          <p class="mt-2 text-sm text-gray-600 mb-4">
+            Official tap with automatic updates
+          </p>
+          <div class="bg-gray-900 rounded-lg p-4">
+            <code class="text-green-400 text-sm font-mono block">
+              brew install --cask richhaase/tap/plonk
+            </code>
+          </div>
+        </div>
+        
+        <!-- Go Install -->
+        <div class="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-200">
+          <h3 class="text-lg font-semibold text-gray-900 flex items-center">
+            <svg class="h-6 w-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            Go Install
+          </h3>
+          <p class="mt-2 text-sm text-gray-600 mb-4">
+            For Go developers (requires Go 1.23+)
+          </p>
+          <div class="bg-gray-900 rounded-lg p-4">
+            <code class="text-green-400 text-sm font-mono block text-wrap break-all">
+              go install github.com/richhaase/plonk/cmd/plonk@latest
+            </code>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Quick Start -->
+      <div class="mt-12 rounded-2xl bg-gray-50 p-8">
+        <h3 class="text-xl font-semibold text-gray-900 mb-6">
+          Two ways to get started
+        </h3>
+        
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <!-- Existing Setup -->
+          <div>
+            <h4 class="text-lg font-medium text-gray-900 mb-3 flex items-center">
+              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-indigo-600 text-sm font-semibold mr-3">1</span>
+              Clone Existing Setup
+            </h4>
+            <div class="bg-gray-900 rounded-lg p-4 mb-3">
+              <code class="text-green-400 text-sm font-mono">
+                plonk clone your-github/dotfiles
+              </code>
+            </div>
+            <p class="text-sm text-gray-600">
+              If you already have a dotfiles repo, plonk will clone it and set up everything automatically.
+            </p>
+          </div>
+          
+          <!-- Start Fresh -->
+          <div>
+            <h4 class="text-lg font-medium text-gray-900 mb-3 flex items-center">
+              <span class="flex h-8 w-8 items-center justify-center rounded-full bg-green-100 text-green-600 text-sm font-semibold mr-3">2</span>
+              Start Fresh
+            </h4>
+            <div class="bg-gray-900 rounded-lg p-4 mb-3">
+              <div class="text-green-400 text-sm font-mono">
+                <div>plonk add ~/.zshrc ~/.vimrc</div>
+                <div class="mt-1">plonk install ripgrep fd bat</div>
+              </div>
+            </div>
+            <p class="text-sm text-gray-600">
+              Start tracking your existing dotfiles and packages with plonk.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Commands -->
+      <div class="mt-12 rounded-2xl bg-white p-8 shadow-sm ring-1 ring-gray-200">
+        <h3 class="text-lg font-semibold text-gray-900 mb-6">
+          Essential Commands
+        </h3>
+        <div class="space-y-4">
+          <div class="flex items-start">
+            <code class="text-indigo-600 bg-indigo-50 px-3 py-1 rounded font-mono text-sm mr-4 whitespace-nowrap">plonk status</code>
+            <span class="text-sm text-gray-600">View all managed packages and dotfiles</span>
+          </div>
+          <div class="flex items-start">
+            <code class="text-indigo-600 bg-indigo-50 px-3 py-1 rounded font-mono text-sm mr-4 whitespace-nowrap">plonk apply</code>
+            <span class="text-sm text-gray-600">Sync system to desired state</span>
+          </div>
+          <div class="flex items-start">
+            <code class="text-indigo-600 bg-indigo-50 px-3 py-1 rounded font-mono text-sm mr-4 whitespace-nowrap">plonk doctor</code>
+            <span class="text-sm text-gray-600">Check system health and dependencies</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

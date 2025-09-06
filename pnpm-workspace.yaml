@@ -1,0 +1,7 @@
+packages:
+  - site
+
+ignoredBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - esbuild
+  - sharp

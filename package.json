@@ -1,0 +1,45 @@
+{
+  "name": "{{PROJECT_NAME}}",
+  "version": "1.0.0",
+  "description": "{{PROJECT_DESCRIPTION}}",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "dev": "pnpm --filter site dev",
+    "build": "pnpm --filter site build",
+    "preview": "pnpm --filter site preview",
+    "deploy": "node scripts/deploy.js",
+    "deploy:all": "pnpm run infra:apply && pnpm run build && pnpm run deploy",
+    "infra:plan": "node scripts/infra.js plan",
+    "infra:apply": "node scripts/infra.js apply",
+    "infra:destroy": "node scripts/infra.js destroy",
+    "infra:output": "node scripts/infra.js output",
+    "health": "node scripts/health.js",
+    "clean": "pnpm --filter site clean && rm -rf node_modules"
+  },
+  "keywords": [
+    "astro",
+    "aws",
+    "s3",
+    "cloudfront",
+    "static-site",
+    "infrastructure",
+    "template"
+  ],
+  "author": "{{AUTHOR_NAME}}",
+  "license": "MIT",
+  "devDependencies": {
+    "@aws-sdk/client-cloudfront": "^3.658.1",
+    "@aws-sdk/client-s3": "^3.658.1",
+    "@aws-sdk/lib-storage": "^3.658.1",
+    "chalk": "^5.3.0",
+    "mime": "^4.0.4",
+    "ora": "^8.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@10.14.0"
+}

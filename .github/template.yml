@@ -1,0 +1,51 @@
+name: Astro + AWS Infrastructure Template
+description: 'A production-ready Astro template with complete AWS infrastructure setup. Perfect for landing pages, documentation, blogs, and general static sites.'
+
+labels:
+  - astro
+  - aws
+  - template
+  - infrastructure
+  - static-site
+  - cloudfront
+  - s3
+  - tailwind
+
+includeAllFiles: true
+
+files:
+  - package.json
+  - site/
+  - infra/
+  - scripts/
+  - docs/
+  - README.md
+  - .github/
+  - .gitignore
+  - .envrc.example
+  - LICENSE
+  - pnpm-workspace.yaml
+  - template.config.js
+
+includePrivateRepos: false
+
+visibility: public
+
+owner:
+  - type: organization
+    name: your-org-name
+  - type: user 
+    name: your-username
+
+topics:
+  - astro
+  - aws-infrastructure
+  - static-site-generator
+  - template
+  - cloudfront
+  - s3-bucket
+  - route53
+  - ssl-certificate
+  - opentofu
+  - terraform
+  - tailwind-css
