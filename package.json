@@ -1,7 +1,7 @@
 {
-  "name": "{{PROJECT_NAME}}",
+  "name": "astro-on-aws-template",
   "version": "1.0.0",
-  "description": "{{PROJECT_DESCRIPTION}}",
+  "description": "Minimal, production-ready Astro template with complete AWS infrastructure for static site hosting",
   "private": true,
   "type": "module",
   "scripts": {
@@ -27,7 +27,7 @@
     "infrastructure",
     "template"
   ],
-  "author": "{{AUTHOR_NAME}}",
+  "author": "Rich Haase",
   "license": "MIT",
   "devDependencies": {
     "@aws-sdk/client-cloudfront": "^3.658.1",

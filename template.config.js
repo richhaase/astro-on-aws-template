@@ -1,9 +1,9 @@
 // Template configuration schema and defaults
 export const templateConfig = {
   // Template metadata
-  name: 'astro-aws-template',
+  name: 'astro-on-aws-template',
   version: '1.0.0',
-  description: 'Astro site with AWS infrastructure',
+  description: 'Minimal Astro template with production-ready AWS infrastructure',
 
   // Template variables with defaults and validation
   variables: {

@@ -21,7 +21,7 @@ Perfect for developers who want:
 
 **Option B: Clone Directly**
 ```bash
-git clone https://github.com/YOUR_USERNAME/astro-aws-template.git my-new-site
+git clone https://github.com/richhaase/astro-on-aws-template.git my-new-site
 cd my-new-site
 rm -rf .git && git init
 ```

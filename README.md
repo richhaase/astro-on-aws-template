@@ -35,7 +35,7 @@ A minimal, production-ready template for deploying Astro sites to AWS. Get a pro
 ### 1. Use This Template
 ```bash
 # Clone the template (replace with your repo URL after creating from template)
-git clone https://github.com/YOUR_USERNAME/your-site-name.git
+git clone https://github.com/richhaase/astro-on-aws-template.git your-site-name
 cd your-site-name
 ```
 
