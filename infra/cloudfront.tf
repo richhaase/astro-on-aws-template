@@ -1,3 +1,31 @@
+# CloudFront Security Headers Policy
+resource "aws_cloudfront_response_headers_policy" "security_headers" {
+  name = "${var.domain_name}-security-headers"
+  
+  security_headers_config {
+    content_type_options {
+      override = false
+    }
+    frame_options {
+      frame_option = "DENY"
+      override     = false  
+    }
+    referrer_policy {
+      referrer_policy = "strict-origin-when-cross-origin"
+      override        = false
+    }
+    strict_transport_security {
+      access_control_max_age_sec = 31536000
+      include_subdomains         = true
+      override                   = false
+    }
+    content_security_policy {
+      content_security_policy = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self';"
+      override = false
+    }
+  }
+}
+
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
     domain_name              = aws_s3_bucket.domain_bucket.bucket_regional_domain_name
@@ -28,11 +56,12 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
       function_arn = aws_cloudfront_function.url_rewrite.arn
     }
 
-    viewer_protocol_policy = "redirect-to-https"
-    min_ttl                = 0
-    default_ttl            = 0
-    max_ttl                = 0
-    compress               = true
+    viewer_protocol_policy     = "redirect-to-https"
+    min_ttl                    = 0
+    default_ttl                = 0
+    max_ttl                    = 0
+    compress                   = true
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.security_headers.id
   }
 
   custom_error_response {

@@ -11,8 +11,8 @@ A minimal, production-ready template for deploying Astro sites to AWS. Get a pro
 - Optimized build configuration for AWS S3
 
 ### ☁️ **Complete AWS Infrastructure**
-- **S3** static website hosting with proper security policies
-- **CloudFront** CDN with SSL/TLS and caching optimization
+- **S3** static website hosting with AES-256 encryption and public access blocks
+- **CloudFront** CDN with SSL/TLS, security headers, and caching optimization
 - **Route 53** DNS management and domain configuration
 - **ACM** SSL certificate with automatic DNS validation
 - **IAM** least-privilege deployment permissions
@@ -164,11 +164,14 @@ NODE_ENV=prod npm run deploy
 
 ## 🔒 Security Features
 
-- **Secure S3 policies** with CloudFront-only access
-- **SSL/TLS encryption** with HTTP to HTTPS redirects
-- **Security headers** via CloudFront
+- **S3 Server-Side Encryption** with AES-256 and bucket key enabled (99% cost reduction)
+- **S3 Public Access Blocks** preventing accidental public bucket exposure
+- **CloudFront Security Headers** (CSP, HSTS, X-Frame-Options, X-Content-Type, Referrer-Policy)
+- **HTTPS Everywhere** with secure redirects and SSL/TLS certificates
+- **CloudFront Origin Access Control** restricting S3 access to CDN only
 - **IAM least-privilege** access for deployments
-- **Input validation** for all configuration values
+- **Environment file security** with proper gitignore patterns
+- **No local state files** - all Terraform state stored securely in S3
 
 ## 📈 Performance Optimizations
 

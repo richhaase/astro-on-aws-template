@@ -71,3 +71,6 @@ build/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Terraform/OpenTofu state files
+infra/.terraform/

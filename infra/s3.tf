@@ -52,7 +52,50 @@ resource "aws_s3_bucket_website_configuration" "www_bucket" {
   bucket = aws_s3_bucket.www_bucket.id
 
   redirect_all_requests_to {
-    host_name = aws_s3_bucket.domain_bucket.bucket_regional_domain_name
-    protocol  = "http"
+    host_name = var.domain_name  # Use actual domain, not S3 endpoint
+    protocol  = "https"         # ✅ SECURE
   }
 }
+
+# S3 Bucket Server-Side Encryption
+resource "aws_s3_bucket_server_side_encryption_configuration" "domain_bucket" {
+  bucket = aws_s3_bucket.domain_bucket.id
+  
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
+    }
+    bucket_key_enabled = true  # Reduces costs by 99%
+  }
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "www_bucket" {
+  bucket = aws_s3_bucket.www_bucket.id
+  
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
+    }
+    bucket_key_enabled = true  # Reduces costs by 99%
+  }
+}
+
+# S3 Public Access Blocks
+resource "aws_s3_bucket_public_access_block" "domain_bucket" {
+  bucket = aws_s3_bucket.domain_bucket.id
+  
+  block_public_acls       = true
+  block_public_policy     = true  
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
+resource "aws_s3_bucket_public_access_block" "www_bucket" {
+  bucket = aws_s3_bucket.www_bucket.id
+  
+  block_public_acls       = true
+  block_public_policy     = true  
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
